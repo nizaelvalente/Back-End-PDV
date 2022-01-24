@@ -1,11 +1,12 @@
 require('./schemas/product.schema')
 require('./schemas/sales.Schema')
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const server = express()
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/PDV_NGV', {
+mongoose.connect(process.env.DATA_BASE, {
                  
     useNewUrlParser: true,
     useUnifiedTopology: true

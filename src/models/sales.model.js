@@ -13,9 +13,9 @@ module.exports = {
         }
 
     },
-    async get() {
+    async get(filter) {
         try {
-            const data = await saleSchema.find().populate('products.product')
+            const data = await saleSchema.find(filter)
             return { status: 200, data }
         } catch (error) {
             return { status: 400, data: { message: 'Nenhum produto encontrado' } }

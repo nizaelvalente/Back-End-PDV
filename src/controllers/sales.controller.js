@@ -1,8 +1,6 @@
 const saleModels = require('../models/sales.model.js')
 module.exports = {
     async create (req, res) {
-        console.log(req)
-
         const {status, data} = await saleModels.create(req)
         console.log(data)
         return res.status(status).send(data)
@@ -10,7 +8,7 @@ module.exports = {
     },
 
     async get (req, res) {
-        const {status, data} = await saleModels.get()
+        const {status, data} = await saleModels.get(req.query)
         return res.status(status).send(data)
 
     }, 
